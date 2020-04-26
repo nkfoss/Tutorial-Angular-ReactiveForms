@@ -31,6 +31,9 @@ export class AppComponent implements OnInit{
       'hobbies': new FormArray([])
     });
 
+    // Once again, we can patch values in the form
+
+
     // You can uncomment these to see what they do.
 
     // this.signupForm.valueChanges.subscribe(
@@ -40,6 +43,21 @@ export class AppComponent implements OnInit{
     //   this.signupForm.statusChanges.subscribe(
     //   (value) => console.log(value)
     // );
+
+    // Once again, we can update an entire form.
+    this.signupForm.setValue({
+      'userData': {
+        'username': 'Bandit',
+        'email': 'Bowser@cats.com'
+      },
+      'gender': 'male',
+      'hobbies': []
+    })
+
+    // Or we can patch a value (or in our case, do both).
+    this.signupForm.get('userData').patchValue({
+      'username': 'Bowser'
+    })
   }
 
   // ============================================
